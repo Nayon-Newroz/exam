@@ -162,9 +162,7 @@ const myData = [
     
     function catchValues(){
       console.log(variable1);
-      console.log(variable2);
-    
-    // Both the variables can be accessed anywhere since they are declared in the global scope
+      console.log(variable2); 
     }
     
     window.variable1;`,
@@ -184,9 +182,7 @@ const myData = [
     
     function catchValues(){
       console.log(variable1);
-      console.log(variable2);
-    
-    // Both the variables can be accessed anywhere since they are declared in the global scope
+      console.log(variable2); 
     }
     
     window.variable2;`,
@@ -202,9 +198,7 @@ const myData = [
   {
     title: `function extractingArgs(...args){
         return args[1];
-      }
-      
-      // extractingArgs(8,9,1); // Returns 9
+      } 
       
       function addAllArgs(...args){
         let sumOfArgs = 0;
@@ -228,9 +222,7 @@ const myData = [
   {
     title: `function extractingArgs(...args){
         return args[1];
-      }
-      
-      // extractingArgs(8,9,1); // Returns 9
+      } 
       
       function addAllArgs(...args){
         let sumOfArgs = 0;
@@ -259,7 +251,7 @@ const myData = [
       }
       
       const {strength:classStrength, benches:classBenches,blackBoard:classBlackBoard} = classDetails;
-      console.log(classStrength); // Outputs 78`,
+      console.log(classStrength);`,
     options: [
       { id: 1, option: "true" },
       { id: 2, option: "false" },

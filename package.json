@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.8.3",
     "@mui/lab": "^5.0.0-alpha.85",
     "@mui/material": "^5.8.3",
     "@mui/styled-engine-sc": "^5.8.0",
@@ -15,6 +16,7 @@
     "export-xlsx": "^0.1.4",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-keyboard-event-handler": "^1.5.4",
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
     "react-syntax-highlighter": "^15.5.0",
