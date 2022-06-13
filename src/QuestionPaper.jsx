@@ -71,14 +71,17 @@ const useStyles = makeStyles((theme) => ({
   main: {
     background: "#079992",
     minHeight: "100vh",
-    padding: "20px 20px",
+    // padding: "10px 20px",
     boxSizing: "border-box",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
+    justifyContent: "space-between",
     [theme.breakpoints.down("xl")]: {
       padding: "10px",
     },
+    // "&:hover": {
+    //   background: "green",
+    // },
   },
   divPadding: {
     padding: "25px",
@@ -95,13 +98,13 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-const QuestionPaper = (props) => {
+const QuestionPaper = () => {
   const customSlider = useRef();
   const classes = useStyles();
   const [data, setData] = useState(MyData);
   const [activeSlideNo, setActiveSlideNo] = useState(0);
   const [refress, setRefress] = useState(false);
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const [exit, setExit] = useState(false);
   const [keyboard, setKeyboard] = useState(false);
   const [checkMessage, setCheckMessage] = useState("");
@@ -176,8 +179,11 @@ const QuestionPaper = (props) => {
         handleFocusableElements
         onKeyEvent={(key, e) => setKeyboard(true)}
       />
-
-      <div>
+      <div
+        style={{ height: "1px", background: "red" }}
+        onMouseOver={() => setKeyboard(true)}
+      ></div>
+      <div style={{ padding: "0px 20px" }}>
         <p className={classes.title}>Remaining Time</p>
 
         <Timer min={30} sec={0} timeOutFunction={timeOutFunction} />
@@ -475,7 +481,7 @@ const QuestionPaper = (props) => {
               <br />
               1. Please, don't use keyboard.
               <br />
-              2. Please, don't cross the window with your mouse.
+              2. Please, don't cross the red line with your mouse.
               <br />
               3. Please, don't use any unethical practice.
               <br />
@@ -547,6 +553,10 @@ const QuestionPaper = (props) => {
           </DialogActions>
         </Dialog>
       </div>
+      <div
+        style={{ height: "1px", background: "red" }}
+        onMouseOver={() => setKeyboard(true)}
+      ></div>
     </div>
   );
 };
