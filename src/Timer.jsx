@@ -14,16 +14,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Timer = ({ min, sec, setOtpTimeOut, timeOutFunction }) => {
+const Timer = ({ min, sec, timeOutFunction }) => {
   // const {initialMinute = 0,initialSeconds = 0} = props;
   const classes = useStyles();
   const [minutes, setMinutes] = useState(min);
   const [seconds, setSeconds] = useState(sec);
+
   useEffect(() => {
     let myInterval = setInterval(() => {
       if (minutes === 0 && seconds === 0) {
         timeOutFunction();
-        setOtpTimeOut(true);
       }
       if (seconds > 0) {
         setSeconds(seconds - 1);

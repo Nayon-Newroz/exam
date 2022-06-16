@@ -106,7 +106,7 @@ const QuestionPaper = () => {
   const [refress, setRefress] = useState(false);
   const [open, setOpen] = useState(false);
   const [exit, setExit] = useState(false);
-  const [keyboard, setKeyboard] = useState(false);
+  const [keyboard, setKeyboard] = useState(true);
   const [checkMessage, setCheckMessage] = useState("");
   const [remainingQuestionNo, setRemainingQuestionNo] = useState([]);
   const [obtainedMarks, setObtainedMarks] = useState();
@@ -141,15 +141,12 @@ const QuestionPaper = () => {
   const handleSubmit = () => {
     try {
       let totalMarks = 0;
-      console.log("data", data);
 
       data.map((item, i) => {
-        console.log("item.selectedOption", item.selectedOption);
         if (item.selectedOption === item.answerId) {
           totalMarks += 5;
         }
       });
-      console.log("totalMarks", totalMarks);
 
       setObtainedMarks(totalMarks);
       setOpen(false);
@@ -169,7 +166,6 @@ const QuestionPaper = () => {
     beforeChange: (current, next) => setActiveSlideNo(next),
   };
   const timeOutFunction = () => {
-    console.log("timeOutFunction");
     handleSubmit();
   };
   return (
@@ -180,7 +176,7 @@ const QuestionPaper = () => {
         onKeyEvent={(key, e) => setKeyboard(true)}
       />
       <div
-        style={{ height: "1px", background: "red" }}
+        style={{ height: "3px", background: "red" }}
         onMouseOver={() => setKeyboard(true)}
       ></div>
       <div style={{ padding: "0px 20px" }}>
@@ -189,35 +185,7 @@ const QuestionPaper = () => {
         <Timer min={30} sec={0} timeOutFunction={timeOutFunction} />
 
         <Grid container spacing={1}>
-          <Grid item xs={0} sm={0} md={1} lg={1} xl={2}>
-            {/* <div
-            style={{ background: "#fff", padding: "25px", borderRadius: "5px" }}
-          >
-            <h4 style={{ color: "#079992", textAlign: "center" }}>
-              Queation No:
-            </h4>
-          
-            <Grid container columnSpacing={1}>
-              {data?.map((item, i) => (
-                <Grid item xs={4} key={i}>
-                  <Button
-                    fullWidth
-                    variant="outlined"
-                    className={`${classes.buttonStyle} ${
-                      activeSlideNo === i ? classes.activeStyle : ""
-                    } `}
-                    style={{
-                      marginBottom: "10px",
-                    }}
-                    onClick={() => customSlider.current.slickGoTo(i)}
-                  >
-                    {i + 1}
-                  </Button>
-                </Grid>
-              ))}
-            </Grid>
-          </div> */}
-          </Grid>
+          <Grid item xs={0} sm={0} md={1} lg={1} xl={2}></Grid>
           <Grid item xs={12} sm={8.8} md={8} lg={8} xl={8}>
             <div
               style={{ background: "#fff", borderRadius: "5px" }}
@@ -230,6 +198,10 @@ const QuestionPaper = () => {
                 {data?.map((item, i) => (
                   <div key={i}>
                     <div className={classes.divPadding}>
+                      <h2 style={{ margin: 0, fontWeight: 400 }}>
+                        Question No: {i + 1}
+                      </h2>
+                      {/* <p>Find out the output</p> */}
                       <SyntaxHighlighter
                         language="javascript"
                         wrapLines={true}
@@ -554,7 +526,7 @@ const QuestionPaper = () => {
         </Dialog>
       </div>
       <div
-        style={{ height: "1px", background: "red" }}
+        style={{ height: "3px", background: "red" }}
         onMouseOver={() => setKeyboard(true)}
       ></div>
     </div>
